@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ProductService } from './product.service';
 import {ResProductService} from "../IO/res-product.service";
-import {IProduct} from "../SharedModule/model/iproduct";
+import {IProduct} from "../CoreModule/model/iproduct";
 import {HttpClientModule} from "@angular/common/http";
 
 describe('ProductService', () => {

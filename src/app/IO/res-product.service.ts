@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IProduct} from "../SharedModule/model/iproduct";
+import {IProduct} from "../CoreModule/model/iproduct";
 import {lastValueFrom} from "rxjs";
 import {APP_URL} from "../CoreModule/helpers/constants";
 

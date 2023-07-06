@@ -1,6 +1,6 @@
 import {inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {ResProductService} from "../IO/res-product.service";
-import {IProduct} from "../SharedModule/model/iproduct";
+import {IProduct} from "../CoreModule/model/iproduct";
 
 @Injectable({
   providedIn: 'root'
