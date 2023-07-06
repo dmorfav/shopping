@@ -9,7 +9,7 @@ import {CoreRoutingModule} from "./core-routing.module";
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
   ]
 })
 export class CoreModule { }

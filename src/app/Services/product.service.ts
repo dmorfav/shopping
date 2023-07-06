@@ -8,14 +8,15 @@ import {IProduct} from "../CoreModule/model/iproduct";
 export class ProductService {
 
   private readonly ioProductService: ResProductService = inject(ResProductService);
-  private _products: WritableSignal<IProduct[]> = signal<IProduct[]>([]);
+  private _products: WritableSignal<IProduct[]|undefined> = signal<IProduct[]|undefined>(undefined);
 
-  constructor() { }
+  constructor() {
+  }
 
   /**
    * Getter for products
    */
-  get products(): WritableSignal<IProduct[]> {
+  get products(): WritableSignal<IProduct[] | undefined> {
     return this._products;
   }
 
@@ -23,7 +24,7 @@ export class ProductService {
    * Setter for products
    * @param value
    */
-  set products(value: WritableSignal<IProduct[]>) {
+  set products(value: WritableSignal<IProduct[]|undefined>) {
     this._products = value;
   }
 
