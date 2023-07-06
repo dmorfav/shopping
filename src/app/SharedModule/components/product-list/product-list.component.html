@@ -1,0 +1,24 @@
+<div *ngIf="products?.length == undefined" class="container mx-auto flex items-center flex-wrap pt-4 pb-12 animate-pulse">
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+  <div class="w-60 h-60 bg-gray-200 rounded-t-lg dark:bg-gray-400 m-2"></div>
+</div>
+
+<div class="container mx-auto flex items-center flex-wrap pt-4 pb-10" *ngIf="products?.length != undefined">
+
+  <div *ngIf="products?.length != undefined && products!.length == 0" class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+    <p class="font-bold">Listado de productos</p>
+    <p>Parece que no nos va bien, no tenemos productos</p>
+  </div>
+
+  <app-product-card class="py-16" *ngFor="let product of products" [id]="product.id" [title]="product.title"
+                    [description]="product.description" [price]="product.price" [category]="product.category.name"
+                    [images]="product.images"></app-product-card>
+</div>
