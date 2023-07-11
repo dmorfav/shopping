@@ -38,4 +38,11 @@ export class ProductService {
     this.products.set(productList);
     await this.workerService.processData(productList);
   }
+
+  /**
+   * Get a product by its id
+   */
+  async getProductById(id: number): Promise<IProduct | undefined> {
+    return this.ioProductService.getProductById(id);
+  }
 }

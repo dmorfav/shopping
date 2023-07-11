@@ -13,7 +13,17 @@ export class ResProductService {
 
   constructor() { }
 
+  /**
+   * Get all products
+   */
   getProducts(): Promise<IProduct[]> {
     return lastValueFrom(this.http.get<IProduct[]>(`${APP_URL.API_URL}/products`));
+  }
+
+  /**
+   * Get a product by its id
+   */
+  getProductById(id: number): Promise<IProduct> {
+    return lastValueFrom(this.http.get<IProduct>(`${APP_URL.API_URL}/products/${id}`));
   }
 }
