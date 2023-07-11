@@ -24,8 +24,7 @@ export class ProductCardComponent {
   private readonly router: Router = inject(Router);
 
   async goToDetail(id: number): Promise<void> {
-    console.log(``);
-await this.router.navigate([`${APP_URL.DETAIL}/${id}`]);
+    await this.router.navigate([`${APP_URL.DETAIL}/${id}`]);
   }
 
 }

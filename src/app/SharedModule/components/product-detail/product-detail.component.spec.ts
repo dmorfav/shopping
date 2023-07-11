@@ -3,16 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductDetailComponent } from './product-detail.component';
 
 describe('ProductDetailComponent', () => {
-  let component: ProductDetailComponent;
-  let fixture: ComponentFixture<ProductDetailComponent>;
+  let component: ComponentFixture<ProductDetailComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent]
+      declarations: []
     });
-    fixture = TestBed.createComponent(ProductDetailComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = TestBed.createComponent(ProductDetailComponent);
+    component.detectChanges();
   });
 
   it('should create', () => {

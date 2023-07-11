@@ -8,7 +8,7 @@ import {ProductCardComponent} from "../SharedModule/components/product-card/prod
 import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "../SharedModule/shared.module";
 import {ProductListComponent} from "../SharedModule/components/product-list/product-list.component";
-import {ToolbarComponent} from "./components/searchbar/toolbar.component";
+import {ToolbarComponent} from "./components/toolbar/toolbar.component";
 
 
 @NgModule({
