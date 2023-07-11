@@ -1,0 +1,20 @@
+.searchbar {
+  width: 0;
+  transition: width 0.3s ease-out;
+  overflow: hidden;
+}
+
+.searchbar-expanded {
+  width: 200px;
+}
+
+.categories {
+  display: none;
+  transition: width 0.3s ease-out;
+  overflow: hidden;
+}
+
+.categories-expanded {
+  display: block;
+  width: auto; /* o el ancho deseado para el campo de búsqueda */
+}
