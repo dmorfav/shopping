@@ -12,17 +12,19 @@ export class OrderCategory {
     const categoryAverages: Record<number, CategoryAverage> = {};
 
     products.forEach((product) => {
-      const categoryId = product.category.id;
+      const categoryId = product.category?.id;
 
-      if (categoryAverages.hasOwnProperty(categoryId)) {
-        categoryAverages[categoryId].totalPrice += product.price;
-        categoryAverages[categoryId].totalCount++;
-      } else {
-        categoryAverages[categoryId] = {
-          totalPrice: product.price,
-          totalCount: 1,
-          name: product.category.name ?? "Undefined"
-        };
+      if (categoryId) {
+        if (categoryAverages.hasOwnProperty(categoryId)) {
+          categoryAverages[categoryId].totalPrice += product.price;
+          categoryAverages[categoryId].totalCount++;
+        } else {
+          categoryAverages[categoryId] = {
+            totalPrice: product.price,
+            totalCount: 1,
+            name: product.category.name ?? "Undefined"
+          };
+        }
       }
     });
 

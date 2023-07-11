@@ -1,23 +1,32 @@
 import {Injectable} from '@angular/core';
 import {IProduct} from "../CoreModule/model/iproduct";
+import {ICategory} from "../CoreModule/model/icategory";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorkerCommunicationService {
   private readonly worker = new Worker(new URL('../SharedModule/Workers/stealthy.worker.ts', import.meta.url));
+  private _categories: Array<{ id: number; name: string }> = [];
 
   constructor() {
   }
 
-  sendDataToWorker(data: IProduct[]) {
-      this.worker.postMessage([data]);
+  get categories(): Array<ICategory> {
+    return this._categories;
   }
 
-  getDataFromWorker(): Array<{ id: number; name: string }> {
-      this.worker.onmessage = ({data}) => {
-        return data;
+  async processData(data: IProduct[]): Promise<void> {
+    this._categories = await new Promise<ICategory[]>((resolve, reject) => {
+      this.worker.onmessage = (event) => {
+        resolve(event.data);
       };
-    return [];
+
+      this.worker.onerror = (error) => {
+        reject(error);
+      };
+
+      this.worker.postMessage(data);
+    });
   }
 }

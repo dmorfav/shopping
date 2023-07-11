@@ -1,6 +1,7 @@
 import {inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {ResProductService} from "../IO/res-product.service";
 import {IProduct} from "../CoreModule/model/iproduct";
+import {WorkerCommunicationService} from "./worker-communication.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import {IProduct} from "../CoreModule/model/iproduct";
 export class ProductService {
 
   private readonly ioProductService: ResProductService = inject(ResProductService);
+  private readonly workerService: WorkerCommunicationService = inject(WorkerCommunicationService);
   private _products: WritableSignal<IProduct[]|undefined> = signal<IProduct[]|undefined>(undefined);
 
   constructor() {
@@ -34,5 +36,6 @@ export class ProductService {
   async loadProducts(): Promise<void> {
     const productList = await this.ioProductService.getProducts();
     this.products.set(productList);
+    await this.workerService.processData(productList);
   }
 }
