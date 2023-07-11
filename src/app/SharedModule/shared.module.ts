@@ -5,6 +5,7 @@ import {ResProductService} from "../IO/res-product.service";
 import {CategoryService} from "../Services/category.service";
 import {ResCategoryService} from "../IO/res-category.service";
 import {WorkerCommunicationService} from "../Services/worker-communication.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {WorkerCommunicationService} from "../Services/worker-communication.servi
   ],
   exports: [],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {

@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import {CarouselComponent} from "../SharedModule/components/carousel/carousel.component";
 import {ProductCardComponent} from "../SharedModule/components/product-card/product-card.component";
-import {HttpClientModule} from "@angular/common/http";
 import {SharedModule} from "../SharedModule/shared.module";
 import {ProductListComponent} from "../SharedModule/components/product-list/product-list.component";
 import {ToolbarComponent} from "./components/toolbar/toolbar.component";
@@ -18,10 +17,9 @@ import {ToolbarComponent} from "./components/toolbar/toolbar.component";
   imports: [
     CommonModule,
     HomeRoutingModule,
-    CarouselComponent,
-    HttpClientModule,
-    ProductCardComponent,
     SharedModule,
+    CarouselComponent,
+    ProductCardComponent,
     ProductListComponent,
     ToolbarComponent
   ]
