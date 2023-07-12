@@ -1,5 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../Services/product.service";
 import {ProductListComponent} from "../../../SharedModule/components/product-list/product-list.component";
 import {IProduct} from "../../../CoreModule/model/iproduct";
@@ -9,6 +9,7 @@ import {ICategory} from "../../../CoreModule/model/icategory";
 import {NgForOf} from "@angular/common";
 import {IFilter} from "../../../CoreModule/model/ifilter";
 import {WorkerCommunicationService} from "../../../Services/worker-communication.service";
+import {APP_URL} from "../../../CoreModule/helpers/constants";
 
 @Component({
   selector: 'app-search-result',
@@ -28,6 +29,7 @@ export class SearchResultComponent implements OnInit {
   categories?: ICategory[];
   productList: IProduct[] = [];
   private readonly route: ActivatedRoute = inject(ActivatedRoute);
+  private readonly router: Router = inject(Router);
   private readonly productService: ProductService = inject(ProductService);
   private readonly workerService: WorkerCommunicationService = inject(WorkerCommunicationService);
 
@@ -57,4 +59,7 @@ export class SearchResultComponent implements OnInit {
   }
 
 
+  async goBack(): Promise<void> {
+    await this.router.navigate([APP_URL.HOME]);
+  }
 }

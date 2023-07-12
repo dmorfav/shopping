@@ -1,5 +1,10 @@
 <section class="bg-white py-8">
-  <nav class="w-full z-30 top-0 px-6 py-1">
+  <button class="fixed top-4 left-4 p-2 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600" (click)="goBack()">
+    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 010 1.414L6.414 9H16a1 1 0 010 2H6.414l3.293 3.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 011.414 0z" clip-rule="evenodd" />
+    </svg>
+  </button>
+  <nav class="w-full z-30 top-0 px-6 py-1 pt-8">
     <div class="flex items-center" id="store-nav-content">
       <input type="text" name="title" [(ngModel)]="searchTerms.title" placeholder="Buscar" (keydown.enter)="onEnterPressed()"
              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
