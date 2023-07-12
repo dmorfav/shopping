@@ -68,6 +68,14 @@ Ten en cuenta:
 
 # Respuesta de requisitos técnicos
 
+## Despliegue
+
+1. Clonar el repositorio
+2. npm install
+3. npm run build --omit-dev
+4. npm install -g angular-http-server
+5. angular-http-server -p 8080 --path dist/shopping
+
 ### Módulos:
 - SharedModule: Contendrá los componentes, directivas y servicios compartidos entre diferentes módulos.
 - CoreModule: Contendrá los servicios y lógica centralizada de la aplicación, como la autenticación, manejo de errores, etc.
