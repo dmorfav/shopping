@@ -3,6 +3,9 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {CategoryService} from "../../../Services/category.service";
 import {ICategory} from "../../../CoreModule/model/icategory";
 import {WorkerCommunicationService} from "../../../Services/worker-communication.service";
+import {FormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
+import {APP_URL} from "../../../CoreModule/helpers/constants";
 
 @Component({
   selector: 'app-toolbar',
@@ -11,7 +14,8 @@ import {WorkerCommunicationService} from "../../../Services/worker-communication
   imports: [
     NgClass,
     NgIf,
-    NgForOf
+    NgForOf,
+    FormsModule
   ],
   standalone: true
 })
@@ -19,8 +23,10 @@ export class ToolbarComponent implements OnInit {
   expandedSearchBar = false;
   expandedCategories = false;
   categoryList?: ICategory[] = [];
+  searchTerms: string = '';
   private readonly categoriesService: CategoryService = inject(CategoryService);
   private readonly workerService: WorkerCommunicationService = inject(WorkerCommunicationService);
+  private readonly router: Router = inject(Router);
 
 
   ngOnInit(): void {
@@ -41,5 +47,11 @@ export class ToolbarComponent implements OnInit {
 
   expandCategories() {
     this.expandedCategories = !this.expandedCategories;
+  }
+
+  async onEnterPressed(): Promise<void> {
+    if (0 < this.searchTerms.length) {
+      await this.router.navigate([APP_URL.SEARCH], {queryParams: {title: this.searchTerms}});
+    }
   }
 }

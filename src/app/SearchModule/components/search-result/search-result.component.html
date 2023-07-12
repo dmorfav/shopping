@@ -1,1 +1,21 @@
-<p>search-result works!</p>
+<section class="bg-white py-8">
+  <nav class="w-full z-30 top-0 px-6 py-1">
+    <div class="flex items-center" id="store-nav-content">
+      <input type="text" name="title" [(ngModel)]="searchTerms.title" placeholder="Buscar" (keydown.enter)="onEnterPressed()"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <input type="text" name="min_price" [(ngModel)]="searchTerms.price_min" placeholder="Precio mínimo" (keydown.enter)="onEnterPressed()"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <input type="text" name="max_price" [(ngModel)]="searchTerms.price_max" placeholder="Precio máximo" (keydown.enter)="onEnterPressed()"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+      <select (change)="onCategoryFilterChanged($event)"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option [value]="-1">Todas</option>
+        <option *ngFor="let category of categories" [value]="category.id" [selected]="searchTerms.categoryId == category.id">{{category.name}}</option>
+      </select>
+    </div>
+  </nav>
+  <div class="container mx-auto flex items-center flex-wrap pb-12">
+    <app-product-list [products]="productList"></app-product-list>
+  </div>
+
+</section>
