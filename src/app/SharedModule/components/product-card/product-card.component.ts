@@ -25,11 +25,6 @@ export class ProductCardComponent {
   @Input() images!: string[];
   private readonly router: Router = inject(Router);
 
-  constructor() {
-    // TODO remove before production send
-    console.log(this.images);
-  }
-
   async goToDetail(id: number): Promise<void> {
     await this.router.navigate([`${APP_URL.DETAIL}/${id}`]);
   }
