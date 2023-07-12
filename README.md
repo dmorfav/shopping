@@ -69,40 +69,40 @@ Ten en cuenta:
 # Respuesta de requisitos técnicos
 
 ### Módulos:
-SharedModule: Contendrá los componentes, directivas y servicios compartidos entre diferentes módulos.
-CoreModule: Contendrá los servicios y lógica centralizada de la aplicación, como la autenticación, manejo de errores, etc.
-HomeModule: Contendrá los componentes y lógica relacionada con la página de inicio.
-SearchModule: Contendrá los componentes y lógica relacionada con la página de resultados y buscador.
-ProductDetailModule: Contendrá los componentes y lógica relacionada con la página de detalle de producto.
-CheckoutModule: Contendrá los componentes y lógica relacionada con el proceso de compra.
-UserAreaModule: Contendrá los componentes y lógica relacionada con el área de usuario.
-AdminAreaModule: Contendrá los componentes y lógica relacionada con el área de administración.
+- SharedModule: Contendrá los componentes, directivas y servicios compartidos entre diferentes módulos.
+- CoreModule: Contendrá los servicios y lógica centralizada de la aplicación, como la autenticación, manejo de errores, etc.
+- HomeModule: Contendrá los componentes y lógica relacionada con la página de inicio.
+- SearchModule: Contendrá los componentes y lógica relacionada con la página de resultados y buscador.
+- CheckoutModule: Contendrá los componentes y lógica relacionada con el proceso de compra.
+- UserAreaModule: Contendrá los componentes y lógica relacionada con el área de usuario.
+- AdminAreaModule: Contendrá los componentes y lógica relacionada con el área de administración.
 
 ### Componentes y páginas:
-HomeComponent: Página de inicio con el buscador de productos.
-SearchResultComponent: Página de resultados de búsqueda y filtros.
-ProductDetailComponent: Página de detalle de producto.
-CheckoutComponent: Componente principal del proceso de compra.
-LoginComponent: Componente para iniciar sesión.
-RegisterComponent: Componente para registrar un nuevo usuario.
-UserAreaComponent: Área privada del usuario con diferentes secciones.
-AdminAreaComponent: Área privada de administración con diferentes secciones.
+- HomeComponent: Página de inicio con el buscador de productos.
+- SearchResultComponent: Página de resultados de búsqueda y filtros.
+- ProductDetailComponent: Página de detalle de producto.
+- CheckoutComponent: Componente principal del proceso de compra.
+- LoginComponent: Componente para iniciar sesión.
+- RegisterComponent: Componente para registrar un nuevo usuario.
+- UserAreaComponent: Área privada del usuario con diferentes secciones.
+- AdminAreaComponent: Área privada de administración con diferentes secciones.
 
 ### Seguridad y roles:
 Implementar un sistema de autenticación basado en tokens JWT (JSON Web Tokens) para asegurar las áreas privadas.
 Definir roles de usuario, como "usuario regular" y "administrador", para restringir el acceso a ciertas secciones de la aplicación.
 
 ### Patrones:
-Utilizar el patrón de diseño MVC (Modelo-Vista-Controlador) para separar la lógica de negocio, la presentación y el control de eventos.
-Utilizar el patrón de diseño Observer para manejar eventos y comunicación entre componentes.
+- Utilizar el patrón de diseño MVC (Modelo-Vista-Controlador) para separar la lógica de negocio, la presentación y el control de eventos.
+- Utilizar el patrón de diseño Observer para manejar eventos y comunicación entre componentes.
+- Utilizar el patrón de diseño Worker Thread para ejecutar tareas en segundo plano y así no bloquear el hilo principal de ejecución.
+- Utilizar el patrón de diseño Dependency Injection para inyectar dependencias en los componentes y servicios.
 
 ### Consumo de la API:
-Utilizar los diferentes endpoints proporcionados por la API (https://fakeapi.platzi.com/en/rest/introduction) para obtener los datos necesarios, como productos, categorías, etc.
-Implementar servicios en Angular para interactuar con la API y realizar las solicitudes HTTP.
+- Utilizar los diferentes endpoints proporcionados por la API (https://fakeapi.platzi.com/en/rest/introduction) para obtener los datos necesarios, como productos, categorías, etc.
+- Implementar servicios en Angular para interactuar con la API y realizar las solicitudes HTTP.
 
 ### Optimización de carga y experiencia de usuario:
-Utilizar técnicas de lazy loading para cargar módulos y componentes bajo demanda, reduciendo así el tiempo de carga inicial.
-Implementar técnicas de compresión y minificación de recursos (JavaScript, CSS, imágenes) para reducir el tamaño de los archivos descargados por el cliente.
-Utilizar caché para almacenar recursos estáticos y reducir las solicitudes al servidor.
-Aplicar técnicas de optimización de rendimiento, como el uso de la paginación en las landings de categorías para cargar solo los datos necesarios.
-Implementar una estrategia de precarga (preloading) para cargar en segundo plano los módulos que es probable que el usuario visite a continuación.
+- Utilizar técnicas de lazy loading para cargar módulos y componentes bajo demanda, reduciendo así el tiempo de carga inicial.
+- Utilizar caché para almacenar recursos estáticos y reducir las solicitudes al servidor mediante un service-worker.
+- Implementar una estrategia de precarga (preloading) para cargar en segundo plano los módulos que es probable que el usuario visite a continuación.
+- Implementar web-workers para ejecutar tareas en segundo plano y así no bloquear el hilo principal de ejecución.
