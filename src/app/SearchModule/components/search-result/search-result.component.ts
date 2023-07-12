@@ -36,6 +36,7 @@ export class SearchResultComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.route.queryParams.subscribe(async (params) => {
       this.searchTerms.title = params['title'];
+      this.searchTerms.categoryId = params['category'];
       await this.loadProductsBy();
     });
   }

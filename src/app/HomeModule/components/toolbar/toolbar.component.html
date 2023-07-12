@@ -9,7 +9,7 @@
         </svg>
       </a>
       <div [ngClass]="{'categories': true, 'categories-expanded': expandedCategories}" class="overflow-hidden">
-        <span *ngFor="let category of categoryList" class="bg-gray-200 text-gray-900 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900">{{category.name}}</span>
+        <span *ngFor="let category of categoryList" (click)="searchByCategory(category.id)" class="bg-gray-200 text-gray-900 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-200 dark:text-gray-900">{{category.name}}</span>
       </div>
 
       <a (click)="expandSearch()" class="pl-3 inline-block no-underline hover:text-black">
