@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () =>import('./CoreModule/core.module').then(m => m.CoreModule)
   },
   {
+    path: APP_URL.SEARCH,
+    loadChildren: () =>import('./SearchModule/search-module.module').then(m => m.SearchModuleModule)
+  },
+  {
     path: `${APP_URL.DETAIL}/:id`,
     loadComponent: () => import('./SharedModule/components/product-detail/product-detail.component').then(m => m.ProductDetailComponent)
   },
